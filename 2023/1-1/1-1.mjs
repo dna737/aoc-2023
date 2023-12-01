@@ -34,7 +34,7 @@ function extractDigits(line) {
     for (let i = 0; i < line.length; i++) {
         if (/^[0-9]*$/.test(line[i])) {
             numbers[i] = parseInt(line[i]);
-            if (!min) {
+            if (min === null) {
                 min = i;
             } else {
                 min = Math.min(min, i);
@@ -44,7 +44,7 @@ function extractDigits(line) {
 
         if (/^[0-9]*$/.test(line[line.length - 1 - i])) {
             numbers[line.length - 1 - i] = parseInt(line[line.length - 1 - i]);
-            if (!max) {
+            if (max === null) {
                 max = line.length - 1 - i;
             } else {
                 min = Math.min(min, line.length - 1 - i);
@@ -52,7 +52,6 @@ function extractDigits(line) {
             }
         }
     }
-    console.log("max, min:", max, min);
 
     // Storing the "word" form of numbers in the numbers dict.
     Object.keys(words).map((word) => {
