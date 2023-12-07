@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const contents = fs.readFileSync("./input.txt", {
+const contents = fs.readFileSync("./initInput.txt", {
     encoding: "utf8",
     flag: "r",
 });
@@ -55,16 +55,16 @@ for (let j = 0; j < newTimes; j++) {
         // console.log("hi");
         ++indivCount;
     }
+    if (indivCount > 0) {
+        results.push(indivCount);
+    }
 }
 
-console.log("p2Result:", indivCount);
-// const data = results
-//     .reduce((acc, x) => BigInt(acc) * BigInt(x), BigInt(1))
-//     .toString();
+const data = results
+    .reduce((acc, x) => BigInt(acc) * BigInt(x), BigInt(1))
+    .toString();
 
-// fs.writeFileSync("./d5p2.txt", data, {
-//     encoding: "utf8",
-//     flag: "w",
-// });
-
-// console.log("data:", data);
+fs.writeFileSync("./d5p2.txt", data, {
+    encoding: "utf8",
+    flag: "w",
+});
