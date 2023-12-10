@@ -12,6 +12,8 @@ let currArray = [];
 let prevArray = [];
 let flag = false;
 let result = 0;
+let result2 = 0;
+let result2Total = 0;
 
 for (const line of contents) {
     megaArray = [];
@@ -38,6 +40,19 @@ for (const line of contents) {
     megaArray.forEach((x) => {
         result += x[x.length - 1];
     });
+
+    result2 = megaArray[megaArray.length - 1][0];
+    console.log("last:", result2);
+    for (let j = megaArray.length - 2; j >= 0; --j) {
+        console.log(
+            "🚀 ~ file: 9.mjs:50 ~  megaArray[j][1] :",
+            megaArray[j][0]
+        );
+        result2 = megaArray[j][0] - result2;
+    }
+
+    result2Total += result2;
 }
 
-console.log("result:", result);
+// console.log("result:", result);
+console.log("result2:", result2Total);
